@@ -61,12 +61,13 @@ class RobotContainer:
         and then passing it to a JoystickButton.
         """
         
-        self.driverController.getRightBumper().onTrue(
-            commands2.RunCommand(lambda: self.robotDrive.setX(), [self.robotDrive]))
+        self.driverController.getRightBumperPressed().onTrue(
+            commands2.RunCommand(self.robotDrive.setX, self.robotDrive)
+        )
 
-        self.driverController.getLeftBumper().onTrue(
-            commands2.RunCommand(lambda: self.robotDrive.zeroHeading(), [self.robotDrive]))
-        
+        self.driverController.getLeftBumperPressed().onTrue(
+            commands2.RunCommand(self.robotDrive.zeroHeading, self.robotDrive))
+
         # if self.driverController.getLeftBumper():
         #     DriveSubsystem.setX()
 
