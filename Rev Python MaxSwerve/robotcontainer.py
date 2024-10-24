@@ -64,9 +64,8 @@ class RobotContainer:
         self.driverController.getRightBumper().onTrue(
             commands2.RunCommand(lambda: self.robotDrive.setX(), [self.robotDrive]))
 
-        commands2.button.Trigger(lambda: self.driverController.getLeftBumper()).onTrue(
-            commands2.RunCommand(lambda: self.robotDrive.zeroHeading(), [self.robotDrive])
-        )
+        self.driverController.getLeftBumper().onTrue(
+            commands2.RunCommand(lambda: self.robotDrive.zeroHeading(), [self.robotDrive]))
 
         # if self.driverController.getLeftBumper():
         #     DriveSubsystem.setX()
