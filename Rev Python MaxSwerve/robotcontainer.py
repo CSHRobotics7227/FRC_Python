@@ -60,12 +60,10 @@ class RobotContainer:
         instantiating a :GenericHID or one of its subclasses (Joystick or XboxController),
         and then passing it to a JoystickButton.
         """
-        
-        self.driverController.getRightBumperPressed().onTrue(
-            commands2.RunCommand(self.robotDrive.setX, self.robotDrive)
-        )
+        commands2.button.Trigger(self.driverController.getRightBumperPressed()).onTrue(
+            commands2.RunCommand(self.robotDrive.setX, self.robotDrive))
 
-        self.driverController.getLeftBumperPressed().onTrue(
+        commands2.button.Trigger(self.driverController.getLeftBumperPressed()).onTrue(
             commands2.RunCommand(self.robotDrive.zeroHeading, self.robotDrive))
 
         # if self.driverController.getLeftBumper():
